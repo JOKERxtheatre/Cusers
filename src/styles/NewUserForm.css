@@ -1,0 +1,188 @@
+.overlay {
+  backdrop-filter: blur(3px);
+  position: flex;
+  background-color: rgba(51, 51, 51, 0.5);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal {
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.modal form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+}
+
+.modal input {
+  display: flex;
+  font-size: 1rem;
+  font-family: inherit;
+  padding: 0.5rem 1rem;
+}
+
+.modal label span {
+  font-size: 1.2rem;
+  display: block;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+.gender {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.gender small {
+  font-size: 1.2rem;
+}
+.gender span {
+  font-size: 1.2rem;
+}
+.gender label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.pov {
+  margin-left: -235px;
+  margin-top: 550px;
+}
+
+@media screen and (max-width: 768px) {
+  .pov {
+    margin-left: -255px;
+    margin-top: 515px;
+  }
+  .modal {
+    max-height: 560px;
+  }
+  .modal h2 {
+    font-size: 20px;
+  }
+  .modal label span {
+    font-size: 1rem;
+  }
+  .gender small {
+    font-size: 1rem;
+  }
+  .gender span {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 426px) {
+  .pov {
+    display: none;
+  }
+  .modal {
+    max-height: 560px;
+  }
+  .modal input {
+    width: 270px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  .modal input.inputs {
+    width: 24px;
+  }
+  .grid-cols-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+  .inputs.green {
+    width: 20px !important;
+    height: 20px;
+    margin: 0 5px;
+  }
+  .inputs.red {
+    width: 20px !important;
+    height: 20px;
+    margin: 0 5px;
+  }
+  .btn {
+    margin-left: 98px !important;
+  }
+}
+
+.inputs {
+  -webkit-appearance: none;
+  /* remove default */
+  margin: 6px;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  vertical-align: middle;
+  box-shadow: hsla(0, 0%, 100%, 0.15) 0 1px 1px,
+    inset hsla(0, 0%, 0%, 0.5) 0 0 0 1px;
+  background-color: hsla(0, 0%, 0%, 0.2);
+  background-repeat: no-repeat;
+  -webkit-transition: background-position 0.15s cubic-bezier(0.8, 0, 1, 1),
+    -webkit-transform 0.25s cubic-bezier(0.8, 0, 1, 1);
+  outline: none;
+  padding: 0 !important;
+}
+
+.inputs.green {
+  background-image: -webkit-radial-gradient(
+    hsla(210, 100%, 90%, 1) 0%,
+    hsla(210, 100%, 70%, 1) 15%,
+    hsla(210, 100%, 60%, 0.3) 28%,
+    hsla(210, 100%, 30%, 0) 70%
+  );
+}
+
+.inputs.red {
+  background-image: -webkit-radial-gradient(
+    hsla(0, 100%, 90%, 1) 0%,
+    hsla(0, 100%, 70%, 1) 15%,
+    hsla(0, 100%, 60%, 0.3) 28%,
+    hsla(0, 100%, 30%, 0) 70%
+  );
+}
+
+.inputs:checked {
+  -webkit-transition: background-position 0.2s 0.15s cubic-bezier(0, 0, 0.2, 1),
+    -webkit-transform 0.25s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.inputs:active {
+  -webkit-transform: scale(1.5);
+  -webkit-transition: -webkit-transform 0.1s cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* The up/down direction logic */
+
+.inputs,
+.inputs:active {
+  background-position: 24px 0;
+}
+
+.inputs:checked {
+  background-position: 0 0;
+}
+
+.inputs:checked ~ .input,
+.inputs:checked ~ .input:active {
+  background-position: -24px 0;
+}
